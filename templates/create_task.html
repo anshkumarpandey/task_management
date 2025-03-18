@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/create_task.js' %}"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Create a New Task</h1>
+        <nav>
+            <a href="{% url 'task_list_create' %}" class="btn btn-secondary">Back to Task List</a>
+        </nav>
+    </header>
+    <main>
+        <form action="{% url 'task_list_create' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Task Title</label>
+                <input type="text" id="title" name="title" required placeholder="Enter task title">
+            </div>
+            <div class="form-group">
+                <label for="description">Task Description</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter task description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="completed">Completed</label>
+                <input type="checkbox" id="completed" name="completed">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Task</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Task Manager</p>
+    </footer>
+</body>
+</html>

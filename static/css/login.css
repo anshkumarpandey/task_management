@@ -1,0 +1,112 @@
+/* Animation Keyframes */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatEffect {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 123, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+    }
+}
+
+/* Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+}
+
+/* Login Container */
+.login-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    animation: floatEffect 4s ease-in-out infinite;
+}
+
+/* Glow Animation for Inputs */
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+}
+
+/* Glow Pulse Effect for Button */
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    animation: glowPulse 3s infinite ease-in-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Form Header */
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Label Styling */
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}

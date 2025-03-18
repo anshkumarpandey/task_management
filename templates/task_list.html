@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Tasks</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/task_list.css' %}"> <!-- Link to a custom stylesheet -->
+    <script src="{%'js/task_list.js' %}"></script>
+</head>
+<body>
+    <header>
+        <h1>Your Tasks</h1>
+        <nav>
+            <a href="{% url 'task_list_view' %}" class="btn btn-primary">Create New Task</a>
+        </nav>
+    </header>
+    <main>
+        <ul class="task-list">
+            {% for task in tasks %}
+                <li class="task-item">
+                    <h3>{{ task.title }}</h3>
+                    <p>{{ task.description }}</p>
+                    <p>Status: 
+                        {% if task.completed %}
+                            <span class="status-completed">Completed</span>
+                        {% else %}
+                            <span class="status-pending">Not Completed</span>
+                        {% endif %}
+                    </p>
+                    <div class="task-actions">
+                        <a href="{% url 'task_detail' task.id %}" class="btn btn-view">View</a>
+                        <a href="{% url 'task_edit' task.id %}" class="btn btn-edit">Edit</a>
+                        <a href="{% url 'task_delete' task.id %}" class="btn btn-delete">Delete</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No tasks available. <a href="{% url 'task_list_create' %}">Create one!</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 Task Manager</p>
+    </footer>
+</body>
+</html>

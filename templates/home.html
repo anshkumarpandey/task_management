@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <center><h1>A Breed Apart</h1></center>
+    <p class="quote">When angels have fallen down <br> and the Devil has had his day, <br> you can find the gates of heaven <br> guarded by a single maroon beret.</p>
+    <a href="{% url 'logout'%}" class="btn btn-primary">Logout</a>
+</body>
+</html>
